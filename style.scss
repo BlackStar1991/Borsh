@@ -22,8 +22,6 @@ body {
 }
 
 
-
-
 button {
   margin: 0;
   border: none;
@@ -57,13 +55,14 @@ label {
   width: 60px;
   height: 60px;
   transition: .2s ease-in;
+
   &:hover,
-  &:focus{
+  &:focus {
     filter: brightness(1.2);
   }
 }
 
-.btn_animation svg{
+.btn_animation svg {
   transition: $animation_time ease-in;
   transform: rotate(0);
 }
@@ -86,19 +85,17 @@ label {
 
 .header_title {
   font-family: "Courgette", cursive;
-  font-display: swap;
   font-size: 90px;
   line-height: 80px;
   margin: 0;
   color: $c_dark_grey;
   max-width: 270px;
   background-color: #fff;
-  @media screen and (max-height: 470px ){
+  @media screen and (max-height: 470px) {
     font-size: 50px;
     line-height: 60px;
   }
 }
-
 
 
 .header_subtitle {
@@ -108,7 +105,7 @@ label {
   color: $c_grey;
   display: inline;
   background-color: #fff;
-  @media screen and (max-height: 470px ){
+  @media screen and (max-height: 470px) {
     font-size: 24px;
   }
 }
@@ -289,9 +286,9 @@ label {
   margin: 0;
   z-index: -1;
   opacity: 0;
- 
 
-  li:not(:first-child){
+
+  li:not(:first-child) {
     margin-top: 8dvh;
   }
 
@@ -311,7 +308,7 @@ label {
   }
 }
 
-.video_box{
+.video_box {
   position: absolute;
   right: -30vw;
   top: 0;
@@ -324,7 +321,7 @@ label {
   will-change: transform;
   transform: translateX(0);
 
-  &:before{
+  &:before {
     content: "";
     position: absolute;
     top: 0;
@@ -340,11 +337,11 @@ label {
 
 }
 
-.video_box__wrap{
+.video_box__wrap {
   height: 100%;
 }
 
-.video_box video{
+.video_box video {
   position: relative;
 
   top: 0;
@@ -373,81 +370,80 @@ label {
 }
 
 
-  /// Animation
+/// Animation
 
-  .btn_animation__checkbox:checked + .btn_animation svg{
-    transition: $animation_time ease-in;
-    transform: rotate(180deg);
-  }
-  .btn_animation__checkbox:checked ~ .btn_menu {
-    filter: invert(1);
-    transition: $animation_time ease-in;
-  }
-  .btn_animation__checkbox:checked ~ .main {
+.btn_animation__checkbox:checked + .btn_animation svg {
+  transition: $animation_time ease-in;
+  transform: rotate(180deg);
+}
 
-    .steps_list {
-      opacity: 1;
-      transition: ($animation_time - 0.5) ease-in $animation_time;
-      z-index: 4;
+.btn_animation__checkbox:checked ~ .btn_menu {
+  filter: invert(1);
+  transition: $animation_time ease-in;
+}
+
+.btn_animation__checkbox:checked ~ .main {
+
+  .steps_list {
+    opacity: 1;
+    transition: ($animation_time - 0.5) ease-in $animation_time;
+    z-index: 4;
+  }
+
+  .steps_list b {
+
+    transition: $animation_time ease-in ($animation_time * 2);
+    -webkit-filter: invert(100%);
+    filter: invert(100%)
+  }
+
+  .ingredients {
+    position: relative;
+    transition: $animation_time ease-in;
+    transform: translate(-25%, 75%) rotate(90deg);
+    z-index: 5;
+
+    .ingredients_item {
+      margin: 0.3dvh;
     }
-    .steps_list b {
 
-      transition: $animation_time ease-in ($animation_time * 2);
+    img {
+      transform: rotate(-90deg);
+    }
+
+    figcaption {
+      transform: translate(-2%, -930%) rotate(-90deg);
       -webkit-filter: invert(100%);
       filter: invert(100%)
     }
 
-    .ingredients {
-      position: relative;
-      transition: $animation_time ease-in;
-      transform: translate(-25%, 75%) rotate(90deg);
-      z-index: 5;
+  }
 
-      .ingredients_item {
-        margin: 0.3dvh;
-      }
+  .main_image {
+    transform: translate(calc(-120% + 90vw), -30%) rotate(90deg);
+  }
 
-      img {
-        transform: rotate(-90deg);
-      }
+  .main_section {
+    transition: $animation_time ease-in;
+    transform: translateX(-90%);
 
-      figcaption {
-        transform: translate(-2%, -930%) rotate(-90deg);
-        -webkit-filter: invert(100%);
-        filter: invert(100%)
-      }
+    //&:after {
+    //  transition: $animation_time ease-in;
+    //  right: calc(50vw + 16%);
+    //}
+  }
 
+
+  .video_box {
+    transition: $animation_time ease-in;
+    transform: translateX(-170%);
+
+    &:before {
+      transition: $animation_time ease-in ($animation_time * 2);
+      transform: translateX(-100vw);
     }
-
-    .main_image {
-      transform: translate(calc(-120% + 90vw), -30%) rotate(90deg);
-    }
-
-    .main_section {
-      transition: $animation_time ease-in;
-      transform: translateX(-90%);
-
-      //&:after {
-      //  transition: $animation_time ease-in;
-      //  right: calc(50vw + 16%);
-      //}
-    }
-
-
-    .video_box{
-      transition: $animation_time ease-in;
-      transform: translateX(-170%);
-
-      &:before {
-        transition: $animation_time ease-in ($animation_time * 2);
-        transform: translateX(-100vw);
-      }
-
-    }
-
-
-
 
   }
+}
 
 
